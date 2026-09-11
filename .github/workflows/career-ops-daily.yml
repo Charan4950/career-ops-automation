@@ -1,0 +1,53 @@
+name: Career-ops daily scan
+
+on:
+  schedule:
+    - cron: "0 13 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: career-ops-daily
+  cancel-in-progress: false
+
+jobs:
+  scan-and-pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Scan configured portals
+        run: npm run scan
+
+      - name: Process queued job URLs
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: npm run pipeline
+
+      - name: Upload reports and tracker
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: career-ops-${{ github.run_number }}
+          if-no-files-found: warn
+          retention-days: 30
+          path: |
+            reports/*.md
+            data/applications.md
+            data/pipeline.md
+            data/scan-history.tsv
+            data/scan-runs.tsv
+            data/portal-health.tsv
