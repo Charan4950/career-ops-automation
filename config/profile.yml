@@ -1,0 +1,83 @@
+# Career-Ops Profile Configuration
+# Single source of truth for personal data across all modes.
+# Facts here are drawn from cv.md + onboarding answers (2026-09-10).
+
+candidate:
+  full_name: "Charan Sai Jujjuru"
+  email: "charanjs4950@gmail.com"
+  # alternate_emails:
+  #   - "jujjurucharansai.123@gmail.com"
+  phone: "+1 551-359-0375"
+  wechat: ""
+  location: "New Jersey, USA (NYC metro)"
+  linkedin: ""
+  portfolio_url: ""
+  github: "github.com/Charan4950"
+  twitter: ""
+  photo: ""
+  photo_style: rounded
+
+target_roles:
+  # North Star: early-career AI/ML engineering (applied ML, LLM/agent, AI platform)
+  primary:
+    - "AI/ML Engineer"
+    - "Applied ML Engineer"
+    - "AI Agent / LLM Engineer"
+  archetypes:
+    - name: "AI/ML Engineer (early-career)"
+      level: "Entry/Junior"
+      fit: "primary"        # primary = dream role, secondary = good fit, adjacent = stretch
+    - name: "Data Engineer (AWS)"
+      level: "Entry/Junior"
+      fit: "secondary"
+    - name: "Backend Engineer (Python/FastAPI)"
+      level: "Entry/Junior"
+      fit: "adjacent"
+
+narrative:
+  headline: "IT Management MS grad moving into applied AI-agent and cloud-data engineering"
+  # Framing only — traceable to cv.md Professional Summary. Not a factual claim beyond it.
+  exit_story: "Recent MS (Information Technology Management) graduate with hands-on project experience in distributed systems, AWS data infrastructure, and AI-agent frameworks (LangChain, LangGraph, FastAPI). Currently deepening software engineering skills by deploying, studying, and extending a production-grade open-source AI agent system end-to-end."
+  superpowers:
+    - "Hands-on AI-agent frameworks: LangChain, LangGraph, FastAPI"
+    - "AWS data pipelines: Glue, Lambda, S3, Redshift"
+    - "Fault-tolerant distributed system design across multiple projects"
+  proof_points:
+    - name: "Real-Time Credit Card Fraud Detection (Distributed Systems)"
+      url: ""
+      hero_metric: "91% detection accuracy; 30% faster query response on S3/Redshift pipelines"
+    - name: "College Management Portal (React + Java)"
+      url: ""
+      hero_metric: "AI chatbot cut support requests 40%; 30% lower backend query latency"
+    - name: "Two-Factor Web Authentication with Runtime QR Code (Python)"
+      url: ""
+      hero_metric: "S3-backed CDN storage cut QR generation latency 25%"
+
+compensation:
+  target_range: "$100K-120K"     # ~$110K total comp target
+  currency: "USD"
+  minimum: "$90K"                # walk-away number
+  location_flexibility: "Remote (US) preferred; NYC-metro hybrid commutable; not relocating outside the NYC area for now"
+
+location:
+  country: "United States"
+  city: "New Jersey (NYC metro)"
+  timezone: "ET"
+  visa_status: "Requires visa sponsorship (currently on student/OPT-type authorization)"
+  authorized_in: []
+  # Needs sponsorship for continued employment — a JD that explicitly will not
+  # sponsor is a hard blocker (see modes/_profile.md "Your Location Policy").
+  needs_sponsorship: true
+
+language:
+  output: en
+  # modes_dir: modes/de  # optional: DACH market vocabulary while still writing in English
+
+spend_tier: standard
+
+cv:
+  output_format: "html"
+
+cover_letter:
+  notice_period_days: 14
+  primary_domain: "applied AI / cloud data engineering"
